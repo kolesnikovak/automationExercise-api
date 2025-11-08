@@ -6,478 +6,498 @@
   },
   "item": [
     {
-      "name": "API 1: GET All Products List",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://automationexercise.com/api/productsList",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "productsList"]
+      "name": "Products",
+      "item": [
+        {
+          "name": "API 1: GET All Products List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/productsList",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "productsList"]
+            },
+            "description": "Get all products list"
+          },
+          "response": []
         },
-        "description": "Get all products list"
-      },
-      "response": []
+        {
+          "name": "API 2: POST To All Products List",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/productsList",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "productsList"]
+            },
+            "description": "POST request to All Products List - This API should return 405 (method not supported)"
+          },
+          "response": []
+        },
+        {
+          "name": "API 5: POST To Search Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "search_product",
+                  "value": "top",
+                  "type": "text",
+                  "description": "Product name to search"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/searchProduct",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "searchProduct"]
+            },
+            "description": "Search product with search_product parameter"
+          },
+          "response": []
+        },
+        {
+          "name": "API 6: POST To Search Product without parameter",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/searchProduct",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "searchProduct"]
+            },
+            "description": "Search product without search_product parameter - should return 400 error"
+          },
+          "response": []
+        }
+      ]
     },
     {
-      "name": "API 2: POST To All Products List",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": "https://automationexercise.com/api/productsList",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "productsList"]
+      "name": "Brands",
+      "item": [
+        {
+          "name": "API 3: GET All Brands List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/brandsList",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "brandsList"]
+            },
+            "description": "Get all brands list"
+          },
+          "response": []
         },
-        "description": "POST request to All Products List - This API should return 405 (method not supported)"
-      },
-      "response": []
+        {
+          "name": "API 4: PUT To All Brands List",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/brandsList",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "brandsList"]
+            },
+            "description": "PUT request to All Brands List - This API should return 405 (method not supported)"
+          },
+          "response": []
+        }
+      ]
     },
     {
-      "name": "API 3: GET All Brands List",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://automationexercise.com/api/brandsList",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "brandsList"]
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "API 7: POST To Verify Login with valid details",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "test@example.com",
+                  "type": "text",
+                  "description": "User email"
+                },
+                {
+                  "key": "password",
+                  "value": "password123",
+                  "type": "text",
+                  "description": "User password"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "verifyLogin"]
+            },
+            "description": "Verify login with valid email and password"
+          },
+          "response": []
         },
-        "description": "Get all brands list"
-      },
-      "response": []
+        {
+          "name": "API 8: POST To Verify Login without email parameter",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "password",
+                  "value": "password123",
+                  "type": "text",
+                  "description": "User password"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "verifyLogin"]
+            },
+            "description": "Verify login without email parameter - should return 400 error"
+          },
+          "response": []
+        },
+        {
+          "name": "API 9: DELETE To Verify Login",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "verifyLogin"]
+            },
+            "description": "DELETE request to Verify Login - should return 405 (method not supported)"
+          },
+          "response": []
+        },
+        {
+          "name": "API 10: POST To Verify Login with invalid details",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "invalid@example.com",
+                  "type": "text",
+                  "description": "Invalid email"
+                },
+                {
+                  "key": "password",
+                  "value": "wrongpassword",
+                  "type": "text",
+                  "description": "Invalid password"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "verifyLogin"]
+            },
+            "description": "Verify login with invalid email and password - should return 404"
+          },
+          "response": []
+        }
+      ]
     },
     {
-      "name": "API 4: PUT To All Brands List",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "url": {
-          "raw": "https://automationexercise.com/api/brandsList",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "brandsList"]
+      "name": "User Account Management",
+      "item": [
+        {
+          "name": "API 11: POST To Create/Register User Account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "John Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "johndoe@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "password123",
+                  "type": "text"
+                },
+                {
+                  "key": "title",
+                  "value": "Mr",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "January",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "1990",
+                  "type": "text"
+                },
+                {
+                  "key": "firstname",
+                  "value": "John",
+                  "type": "text"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "company",
+                  "value": "Test Company",
+                  "type": "text"
+                },
+                {
+                  "key": "address1",
+                  "value": "123 Main St",
+                  "type": "text"
+                },
+                {
+                  "key": "address2",
+                  "value": "Apt 4B",
+                  "type": "text"
+                },
+                {
+                  "key": "country",
+                  "value": "United States",
+                  "type": "text"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "12345",
+                  "type": "text"
+                },
+                {
+                  "key": "state",
+                  "value": "California",
+                  "type": "text"
+                },
+                {
+                  "key": "city",
+                  "value": "Los Angeles",
+                  "type": "text"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "1234567890",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/createAccount",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "createAccount"]
+            },
+            "description": "Create/Register a new user account"
+          },
+          "response": []
         },
-        "description": "PUT request to All Brands List - This API should return 405 (method not supported)"
-      },
-      "response": []
-    },
-    {
-      "name": "API 5: POST To Search Product",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "search_product",
-              "value": "top",
-              "type": "text",
-              "description": "Product name to search"
-            }
-          ]
+        {
+          "name": "API 12: DELETE To Delete User Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "johndoe@example.com",
+                  "type": "text",
+                  "description": "Email of the account to delete"
+                },
+                {
+                  "key": "password",
+                  "value": "password123",
+                  "type": "text",
+                  "description": "Password of the account to delete"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/deleteAccount",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "deleteAccount"]
+            },
+            "description": "Delete user account"
+          },
+          "response": []
         },
-        "url": {
-          "raw": "https://automationexercise.com/api/searchProduct",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "searchProduct"]
+        {
+          "name": "API 13: PUT To Update User Account",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "John Doe Updated",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "johndoe@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "newpassword123",
+                  "type": "text"
+                },
+                {
+                  "key": "title",
+                  "value": "Mr",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "January",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "1990",
+                  "type": "text"
+                },
+                {
+                  "key": "firstname",
+                  "value": "John",
+                  "type": "text"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "company",
+                  "value": "Updated Company",
+                  "type": "text"
+                },
+                {
+                  "key": "address1",
+                  "value": "456 New St",
+                  "type": "text"
+                },
+                {
+                  "key": "address2",
+                  "value": "Suite 10",
+                  "type": "text"
+                },
+                {
+                  "key": "country",
+                  "value": "United States",
+                  "type": "text"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "54321",
+                  "type": "text"
+                },
+                {
+                  "key": "state",
+                  "value": "New York",
+                  "type": "text"
+                },
+                {
+                  "key": "city",
+                  "value": "New York",
+                  "type": "text"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "0987654321",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/updateAccount",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "updateAccount"]
+            },
+            "description": "Update user account details - should return 405 (method not supported)"
+          },
+          "response": []
         },
-        "description": "Search product with search_product parameter"
-      },
-      "response": []
-    },
-    {
-      "name": "API 6: POST To Search Product without parameter",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": []
-        },
-        "url": {
-          "raw": "https://automationexercise.com/api/searchProduct",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "searchProduct"]
-        },
-        "description": "Search product without search_product parameter - should return 400 error"
-      },
-      "response": []
-    },
-    {
-      "name": "API 7: POST To Verify Login with valid details",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "email",
-              "value": "test@example.com",
-              "type": "text",
-              "description": "User email"
+        {
+          "name": "API 14: GET User Account Detail By Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/getUserDetailByEmail?email=johndoe@example.com",
+              "protocol": "https",
+              "host": ["automationexercise", "com"],
+              "path": ["api", "getUserDetailByEmail"],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "johndoe@example.com",
+                  "description": "Email address of the user"
+                }
+              ]
             },
-            {
-              "key": "password",
-              "value": "password123",
-              "type": "text",
-              "description": "User password"
-            }
-          ]
-        },
-        "url": {
-          "raw": "https://automationexercise.com/api/verifyLogin",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "verifyLogin"]
-        },
-        "description": "Verify login with valid email and password"
-      },
-      "response": []
-    },
-    {
-      "name": "API 8: POST To Verify Login without email parameter",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "password",
-              "value": "password123",
-              "type": "text",
-              "description": "User password"
-            }
-          ]
-        },
-        "url": {
-          "raw": "https://automationexercise.com/api/verifyLogin",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "verifyLogin"]
-        },
-        "description": "Verify login without email parameter - should return 400 error"
-      },
-      "response": []
-    },
-    {
-      "name": "API 9: DELETE To Verify Login",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "https://automationexercise.com/api/verifyLogin",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "verifyLogin"]
-        },
-        "description": "DELETE request to Verify Login - should return 405 (method not supported)"
-      },
-      "response": []
-    },
-    {
-      "name": "API 10: POST To Verify Login with invalid details",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "email",
-              "value": "invalid@example.com",
-              "type": "text",
-              "description": "Invalid email"
-            },
-            {
-              "key": "password",
-              "value": "wrongpassword",
-              "type": "text",
-              "description": "Invalid password"
-            }
-          ]
-        },
-        "url": {
-          "raw": "https://automationexercise.com/api/verifyLogin",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "verifyLogin"]
-        },
-        "description": "Verify login with invalid email and password - should return 404"
-      },
-      "response": []
-    },
-    {
-      "name": "API 11: POST To Create/Register User Account",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "name",
-              "value": "John Doe",
-              "type": "text"
-            },
-            {
-              "key": "email",
-              "value": "johndoe@example.com",
-              "type": "text"
-            },
-            {
-              "key": "password",
-              "value": "password123",
-              "type": "text"
-            },
-            {
-              "key": "title",
-              "value": "Mr",
-              "type": "text"
-            },
-            {
-              "key": "birth_date",
-              "value": "1",
-              "type": "text"
-            },
-            {
-              "key": "birth_month",
-              "value": "January",
-              "type": "text"
-            },
-            {
-              "key": "birth_year",
-              "value": "1990",
-              "type": "text"
-            },
-            {
-              "key": "firstname",
-              "value": "John",
-              "type": "text"
-            },
-            {
-              "key": "lastname",
-              "value": "Doe",
-              "type": "text"
-            },
-            {
-              "key": "company",
-              "value": "Test Company",
-              "type": "text"
-            },
-            {
-              "key": "address1",
-              "value": "123 Main St",
-              "type": "text"
-            },
-            {
-              "key": "address2",
-              "value": "Apt 4B",
-              "type": "text"
-            },
-            {
-              "key": "country",
-              "value": "United States",
-              "type": "text"
-            },
-            {
-              "key": "zipcode",
-              "value": "12345",
-              "type": "text"
-            },
-            {
-              "key": "state",
-              "value": "California",
-              "type": "text"
-            },
-            {
-              "key": "city",
-              "value": "Los Angeles",
-              "type": "text"
-            },
-            {
-              "key": "mobile_number",
-              "value": "1234567890",
-              "type": "text"
-            }
-          ]
-        },
-        "url": {
-          "raw": "https://automationexercise.com/api/createAccount",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "createAccount"]
-        },
-        "description": "Create/Register a new user account"
-      },
-      "response": []
-    },
-    {
-      "name": "API 12: DELETE To Delete User Account",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "email",
-              "value": "johndoe@example.com",
-              "type": "text",
-              "description": "Email of the account to delete"
-            },
-            {
-              "key": "password",
-              "value": "password123",
-              "type": "text",
-              "description": "Password of the account to delete"
-            }
-          ]
-        },
-        "url": {
-          "raw": "https://automationexercise.com/api/deleteAccount",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "deleteAccount"]
-        },
-        "description": "Delete user account"
-      },
-      "response": []
-    },
-    {
-      "name": "API 13: PUT To Update User Account",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "name",
-              "value": "John Doe Updated",
-              "type": "text"
-            },
-            {
-              "key": "email",
-              "value": "johndoe@example.com",
-              "type": "text"
-            },
-            {
-              "key": "password",
-              "value": "newpassword123",
-              "type": "text"
-            },
-            {
-              "key": "title",
-              "value": "Mr",
-              "type": "text"
-            },
-            {
-              "key": "birth_date",
-              "value": "1",
-              "type": "text"
-            },
-            {
-              "key": "birth_month",
-              "value": "January",
-              "type": "text"
-            },
-            {
-              "key": "birth_year",
-              "value": "1990",
-              "type": "text"
-            },
-            {
-              "key": "firstname",
-              "value": "John",
-              "type": "text"
-            },
-            {
-              "key": "lastname",
-              "value": "Doe",
-              "type": "text"
-            },
-            {
-              "key": "company",
-              "value": "Updated Company",
-              "type": "text"
-            },
-            {
-              "key": "address1",
-              "value": "456 New St",
-              "type": "text"
-            },
-            {
-              "key": "address2",
-              "value": "Suite 10",
-              "type": "text"
-            },
-            {
-              "key": "country",
-              "value": "United States",
-              "type": "text"
-            },
-            {
-              "key": "zipcode",
-              "value": "54321",
-              "type": "text"
-            },
-            {
-              "key": "state",
-              "value": "New York",
-              "type": "text"
-            },
-            {
-              "key": "city",
-              "value": "New York",
-              "type": "text"
-            },
-            {
-              "key": "mobile_number",
-              "value": "0987654321",
-              "type": "text"
-            }
-          ]
-        },
-        "url": {
-          "raw": "https://automationexercise.com/api/updateAccount",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "updateAccount"]
-        },
-        "description": "Update user account details - should return 405 (method not supported)"
-      },
-      "response": []
-    },
-    {
-      "name": "API 14: GET User Account Detail By Email",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://automationexercise.com/api/getUserDetailByEmail?email=johndoe@example.com",
-          "protocol": "https",
-          "host": ["automationexercise", "com"],
-          "path": ["api", "getUserDetailByEmail"],
-          "query": [
-            {
-              "key": "email",
-              "value": "johndoe@example.com",
-              "description": "Email address of the user"
-            }
-          ]
-        },
-        "description": "Get user account details by email"
-      },
-      "response": []
+            "description": "Get user account details by email"
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }
