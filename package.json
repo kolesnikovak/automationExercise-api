@@ -14,7 +14,14 @@
     "test:auth": "playwright test tests/auth.spec.ts",
     "test:account": "playwright test tests/account.spec.ts",
     "report": "playwright show-report",
-    "clean": "rm -rf test-results playwright-report allure-results allure-report"
+    "clean": "rm -rf test-results playwright-report allure-results allure-report",
+    "perf:smoke": "k6 run k6-tests/scripts/smoke-test.js",
+    "perf:load": "k6 run --out json=k6-tests/reports/load-test-results.json k6-tests/scripts/load-test.js",
+    "perf:load:html": "npm run perf:load && node k6-tests/utils/generate-html-report.js",
+    "perf:stress": "k6 run --out json=k6-tests/reports/stress-test-results.json k6-tests/scripts/stress-test.js",
+    "perf:stress:html": "npm run perf:stress && node k6-tests/utils/generate-stress-report.js",
+    "perf:demo": "npm run perf:smoke",
+    "perf:clean": "rm -rf k6-tests/reports/*.json k6-tests/reports/*.html"
   },
   "keywords": [
     "api",

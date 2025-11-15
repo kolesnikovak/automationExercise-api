@@ -10,6 +10,7 @@ A comprehensive TypeScript-based API testing framework for [AutomationExercise](
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Running Tests](#running-tests)
+- [Performance Testing](#performance-testing)
 - [Test Reports](#test-reports)
 - [API Coverage](#api-coverage)
 
@@ -17,11 +18,13 @@ A comprehensive TypeScript-based API testing framework for [AutomationExercise](
 
 - ✅ TypeScript for type safety
 - ✅ Playwright Test for reliable API testing
+- ✅ k6 for performance and load testing
 - ✅ Modular architecture with reusable utilities
 - ✅ Comprehensive test coverage for all 14 API endpoints
 - ✅ Data generators for dynamic test data
 - ✅ Custom assertion helpers
 - ✅ HTML and JSON test reports
+- ✅ Performance testing with beautiful HTML reports
 - ✅ Environment-based configuration
 - ✅ Parallel test execution
 
@@ -35,6 +38,11 @@ automationExercise-api/
 │   ├── search.spec.ts             # Search API tests
 │   ├── auth.spec.ts               # Authentication tests
 │   └── account.spec.ts            # Account management tests
+├── k6-tests/                       # Performance tests
+│   ├── scripts/                   # k6 test scripts
+│   ├── utils/                     # k6 utilities and config
+│   ├── reports/                   # Generated performance reports
+│   └── README.md                  # Performance testing guide
 ├── utils/                          # Utility modules
 │   ├── api-client.ts              # API client wrapper
 │   ├── test-data-generator.ts     # Test data generators
@@ -53,6 +61,7 @@ automationExercise-api/
 
 - Node.js (v18 or higher)
 - npm or yarn
+- k6 (for performance testing) - Install with `brew install k6`
 
 ## 📦 Installation
 
@@ -130,6 +139,66 @@ npm run test:debug
 ```bash
 npm run clean
 ```
+
+## 🚀 Performance Testing
+
+The project includes comprehensive k6 performance tests to simulate realistic e-commerce traffic patterns.
+
+### Quick Start
+
+```bash
+# Run smoke test (quick validation, 1 min)
+npm run perf:demo
+
+# Run full load test (8 min lunch hour simulation)
+npm run perf:load
+
+# Run load test and generate HTML report
+npm run perf:load:html
+
+# Clean performance reports
+npm run perf:clean
+```
+
+### Performance Test Scenarios
+
+**Smoke Test**: Quick validation with 3 users for 1 minute
+- Purpose: Verify all APIs are working before full test
+- Duration: 1 minute
+- Users: 3 concurrent users
+
+**Load Test**: Realistic lunch hour traffic simulation
+- Ramp-up: 2 minutes (0 → 50 users)
+- Sustain: 5 minutes (50 users steady)
+- Ramp-down: 1 minute (50 → 0 users)
+- Total Duration: 8 minutes
+- User Distribution:
+  - 60% Browse Products
+  - 25% Search Items
+  - 15% Check Brands
+
+### Performance Thresholds
+
+- ✅ P95 response time < 2000ms
+- ✅ P99 response time < 5000ms
+- ✅ Success rate > 99%
+- ✅ Error rate < 1%
+
+### Performance Reports
+
+After running `npm run perf:load:html`, open the report:
+```
+k6-tests/reports/load-test-report.html
+```
+
+The report includes:
+- Summary metrics (duration, requests, users, success rate)
+- Response time percentiles
+- User action distribution
+- Per-endpoint performance breakdown
+- Color-coded pass/fail indicators
+
+For detailed documentation, see: [`k6-tests/README.md`](k6-tests/README.md)
 
 ## 📊 Test Reports
 
